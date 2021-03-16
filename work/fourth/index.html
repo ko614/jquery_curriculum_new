@@ -48,18 +48,10 @@
     <script src="../../common/js/jquery.js"></script>
     <script>
       $(function() {
-        // $('.menu__list li').hover(function(){
-        //   $('.menu__list__childList').children().stop().slideDown();
-        //   console.log(children())
-        //   }, function(){
-        //   $('.menu__list__childList',this).stop().slideUp();
-        // });
         $('.menu__list li').hover(function(){
-          $('.menu__list__childList',
-            this).stop().slideDown();
-            console.log(this)
+          $('.menu__list__childList',this).stop().slideDown();
           }, function(){
-          $('.menu__list__childList',this).stop().slideUp();
+          $('.menu__list li').children('ul').stop().slideUp();
         });
       });
       // 今回やるのはドロップメニューです。
