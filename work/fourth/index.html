@@ -49,16 +49,15 @@
     <script>
       $(function() {
         $('.menu__list li').hover(function(){
-          $('.menu__list__childList:not(:animated)',
-            this).slideDown();
+          $('.menu__list__childList').children().stop().slideDown();
           }, function(){
-          $('.menu__list__childList',this).slideUp();
+          $('.menu__list__childList',this).stop().slideUp();
         });
         // $('.menu__list li').hover(function(){
         //   $('.menu__list__childList',
-        //     this).slideDown().stop().animate();
+        //     this).stop().slideDown();
         //   }, function(){
-        //   $('.menu__list__childList',this).slideUp().stop().animate();
+        //   $('.menu__list__childList',this).stop().slideUp();
         // });
       });
       // 今回やるのはドロップメニューです。
