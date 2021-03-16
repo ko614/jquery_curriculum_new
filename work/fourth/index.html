@@ -47,6 +47,20 @@
     </div>
     <script src="../../common/js/jquery.js"></script>
     <script>
+      $(function() {
+        $('.menu__list li').hover(function(){
+          $('.menu__list__childList:not(:animated)',
+            this).slideDown();
+          }, function(){
+          $('.menu__list__childList',this).slideUp();
+        });
+        // $('.menu__list li').hover(function(){
+        //   $('.menu__list__childList',
+        //     this).slideDown().stop().animate();
+        //   }, function(){
+        //   $('.menu__list__childList',this).slideUp().stop().animate();
+        // });
+      });
       // 今回やるのはドロップメニューです。
       // メニューをhoverすると隠れている中のメニューが表示され、メニューから離れると中のメニューが非表示されるプログラムです。
       // [使用するメソッド]
