@@ -84,33 +84,17 @@
     </div>
     <script src="../../common/js/jquery.js"></script>
     <script>
-      // $(function() {
-      //   $(".select").change(function(){
-      //     var selectValue = $(this).val();
-      //     if(selectValue == "all"){
-      //       $("ul.list li").show();
-      //     } else {
-      //       $("ul.list li").each(function(){
-      //         if($(this).data("category-type") === selectValue){
-      //           $(this).show();
-      //         } else {
-      //           $(this).hide();
-      //         }
-      //       });
-      //     }
-      //   });
-      // });
       $(function() {
         $(".select").change(function(){
           var selectValue = $(this).val();
           if(selectValue === "all"){
             $("ul.list li").show();
           } else {
-            $.each("ul.list li",function(val){
-              if($(val).data("category-type") === selectValue){
-                $(val).show();
+            $("ul.list li").each(function(index,element){
+              if($(element).data("category-type") === selectValue){
+                $(element).show();
               } else {
-                $(val).hide();
+                $(element).hide();
               }
             });
           }
