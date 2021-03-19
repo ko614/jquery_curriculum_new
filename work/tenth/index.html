@@ -77,6 +77,7 @@
               page: page
             },
           }).done(function(data) {
+            resetList();
             if (data.count === 0) {
               $('.message').html( '<p>検索結果が見つかりませんでした。<br>別のキーワードで検索してください</p>')
             } else {
@@ -84,7 +85,7 @@
               showPager(data);
             }
           }).fail(function (error) {
-            showErrorMessage()
+            showErrorMessage(error)
           });
         }
 
@@ -125,7 +126,7 @@
           }
         }
 
-        function showErrorMessage() {
+        function showErrorMessage(error) {
           var message = '';
           switch (error.status) {
             case 0:
