@@ -126,28 +126,28 @@
         }
 
         function showErrorMessage() {
-          var message = ''
+          var message = '';
           switch (error.status) {
             case 0:
               message = '通信に失敗しました。インターネットの接続をご確認ください。';
               break;
             case 400:
-              message = '検索文字が入力されておりません';
+              message = '検索文字が入力されておりません。';
               break;
             case 429:
               message = 'リクエスト過多です。しばらく時間を置いてからお待ちください。';
               break;
-              case 500:
+            case 500:
               message = 'システムエラー。長時間続くようであれば、こちらよりごお問い合わせください。';
               break;
-              case 503:
+            case 503:
               message = 'メンテナンス中です。';
               break;
             default:
-              message = '予期せぬエラーが発生しました';
+              message = '予期せぬエラーが発生しました。';
               break;
           }
-          $('.message').html( '<p>' + message + '</p>');
+          $('.message').html('<p>' + message + '</p>');
         }
       });
       // 楽天ブックスの総合検索APIを使って製作してください。
