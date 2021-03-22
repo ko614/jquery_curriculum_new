@@ -28,17 +28,17 @@
     <script src="../../common/js/jquery.js"></script>
     <script src="./js/appid.js"></script>
     <script>
-      $(function(){
+      $(function() {
         var searchWord = '';
         var page = null;
-        $('[data-js="search-btn"]').on('click',function(){
+        $('[data-js="search-btn"]').on('click', function() {
           searchWord = $('[data-js="search-word"]').val();
           page = 1
           resetList();
           getBookData();
         });
 
-        $(document).on('click','[data-js="page-prev"]',function (event) {
+        $(document).on('click', '[data-js="page-prev"]', function(event) {
           event.preventDefault();
           if ($(this).hasClass('disabled')) {
             return false
@@ -48,7 +48,7 @@
           getBookData();
         });
 
-        $(document).on('click','[data-js="page-next"]',function (event) {
+        $(document).on('click','[data-js="page-next"]', function(event) {
           event.preventDefault();
           if ($(this).hasClass('disabled')) {
             return false
@@ -67,7 +67,7 @@
         function getBookData() {
           $.ajax({
             url: 'https://app.rakuten.co.jp/services/api/BooksTotal/Search/20130522',
-            type: 'GET',
+            type: 'POST',
             datatype: 'json',
             data: {
               applicationId: appId,
@@ -84,14 +84,14 @@
               showLists(data)
               showPager(data);
             }
-          }).fail(function (error) {
+          }).fail(function(error) {
             showErrorMessage(error)
           });
         }
 
         function showLists(data) {
           var li =  '';
-          $.each(data.Items,function(index,book){
+          $.each(data.Items, function(index, book) {
             li += '<li class="lists__item">' +
                     '<div class="lists__item__inner">' +
                       '<a href="' + book.Item.itemUrl + '"class="lists__item__link" target="_blank">' +
@@ -139,7 +139,7 @@
               message = 'リクエスト過多です。しばらく時間を置いてからお待ちください。';
               break;
             case 500:
-              message = 'システムエラー。長時間続くようであれば、こちらよりごお問い合わせください。';
+              message = 'システムエラー。長時間続くようであれば、こちらよりお問い合わせください。';
               break;
             case 503:
               message = 'メンテナンス中です。';
